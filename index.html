@@ -1,43 +1,136 @@
-<!doctype html>
-<html lang="fa">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>تماس</title>
-  <style>
-    html,body { height:100%; margin:0; font-family: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f7f7f9; }
-    .wrap { display:flex; align-items:center; justify-content:center; height:100%; }
-    .card {
-      text-align:center;
-      padding:28px;
-      border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-      background:white;
-      max-width:460px;
-      width:90%;
-    }
-    h1 { margin:0 0 8px; font-size:20px; }
-    p { margin:0 0 18px; color:#444; line-height:1.5; }
-    .btn {
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      border:1px solid #009688;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empicko - دکتر محمدرضا پورموسی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-grad-start: #e0f2f1; /* Pale Mint Green */
+            --bg-grad-end: #e1f5fe;   /* Pale Sky Blue */
+            --container-bg: rgba(255, 255, 255, 0.65);
+            --gold-color: #c9a96e;    /* Rich, Muted Gold */
+            --subtitle-color: #004d40; /* Dark Teal for subtitle */
+            --shadow-color: rgba(0, 77, 64, 0.15);
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--subtitle-color);
+            overflow: hidden;
+
+            /* Sophisticated background with gradient and subtle medical pattern */
+            background-color: var(--bg-grad-start);
+            background: linear-gradient(135deg, var(--bg-grad-start) 0%, var(--bg-grad-end) 100%);
+            background-image:
+                linear-gradient(135deg, var(--bg-grad-start) 0%, var(--bg-grad-end) 100%),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23004d40' fill-opacity='0.05'%3E%3Cpath d='M39 38h2v4h-2v-4zm0 8h2v4h-2v-4zm-8-8h2v4h-2v-4zm16 0h2v4h-2v-4zm-8-19.99l2 1.334L33 34h-2L23 21.344l2-1.334L32 30.01 39 20.01zm0 24l2 1.334L33 58h-2l-8-12.656 2-1.334L32 54.01 39 44.01z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            text-align: center;
+            background: var(--container-bg);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px var(--shadow-color);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            max-width: 550px;
+        }
+
+        h1.brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 10vw, 4.5rem); /* Responsive font size */
+            color: var(--gold-color);
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-weight: 800;
+        }
+
+        h2.subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: var(--subtitle-color);
+            margin: 10px 0 45px 0;
+            font-weight: 700;
+        }
+
+        .button-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Aligns content to the right for RTL */
+            padding: 16px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button Color Schemes */
+        .telegram-button { background: linear-gradient(135deg, #29A9EA, #0088CC); }
+        .instagram-button { background: linear-gradient(135deg, #F9C58D, #D78A6A, #AF6556); }
+
+        .button .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
+        }
+
+        .button .button-text {
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" role="main" aria-labelledby="title">
-      <h1 id="title">برای تماس، پیام بدهید</h1>
-      <p>لطفاً از طریق تلگرام با من در تماس باشید:</p>
-      <a class="btn" href="https://t.me/Mr_MRPM" target="_blank" rel="noopener noreferrer">
-        @Mr_MRPM (تلگرام)
-      </a>
-      <p style="margin-top:12px;font-size:13px;color:#777">اگر نیاز به راهنمایی بیشتر بود این صفحه را ذخیره کنید.</p>
+
+    <div class="container">
+        <h1 class="brand-title">Empicko</h1>
+        <h2 class="subtitle">دکتر محمدرضا پورموسی</h2>
+        <div class="button-container">
+
+            <!-- Telegram Button -->
+            <a href="https://t.me/Mr_MRPM" target="_blank" rel="noopener noreferrer" class="button telegram-button">
+                <span class="button-text">ارتباط از طریق تلگرام با @Mr_MRPM</span>
+                <img src="https://static.cdnlogo.com/logos/t/84/telegram.svg" alt="Telegram Icon" class="icon">
+            </a>
+
+            <!-- Instagram Button -->
+            <a href="https://instagram.com/Empicko_Ir" target="_blank" rel="noopener noreferrer" class="button instagram-button">
+                 <span class="button-text">ارتباط از طریق اینستاگرام با @Empicko_Ir</span>
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram Icon" class="icon">
+            </a>
+
+        </div>
     </div>
-  </div>
+
 </body>
 </html>
